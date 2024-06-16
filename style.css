@@ -1,0 +1,71 @@
+body {
+    background-color: rgb(53, 53, 53);
+}
+
+.container {
+    display: flex;
+    max-width: 100vw;
+    max-height: 100vh;
+    margin: 80px 0;
+}
+
+.hiddenOverflow {
+    overflow: hidden;
+    align-content: center;
+    opacity: .2;
+}
+
+.main {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.borderRadius {
+    border-radius: 10px;
+}
+
+.button {
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.mainPhoto {
+    width:80%;
+    margin: 0 40px;
+    transition: all .4s ease;
+}
+
+.pre {
+    width: 15%;
+}
+
+.next {
+    width: 15%;
+}
+
+
+.indicator {
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.item {
+    width: 40px;
+    height: 4px;
+    margin: 10px;
+    background-color: lightgray;
+    border-radius: 4px;
+}
+
+.currentItem {
+    background-color: red;
+}
