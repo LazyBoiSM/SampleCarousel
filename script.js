@@ -18,7 +18,8 @@ const photosArray = [
     {
         id : 4,
         source: "https://bit.ly/4b1AulE"
-    },{
+    },
+    {
         id : 5,
         source: "https://bit.ly/3xjt2V4"
     }
@@ -41,30 +42,26 @@ let currentShowingId = -1;
 let nextShowingId;
 let previousShowingId;
 
-const classRemove = (something) => {
-    const previousItem = document.getElementById(`${something-1}`);
-    if(previousItem.classList.contains("currentItem")) {
-        previousItem.classList.remove("currentItem")
-    }
-}
 
 const photoChangeFunction = () => {
-    if(currentShowingId === photosArray.length - 1) {
+    if(currentShowingId === photosArray.length) {
         currentShowingId = 0;
     }
+    if(currentShowingId === -1) {
+        currentShowingId = photosArray.length-1;
+    }
+    const removeClass = document.getElementsByClassName("currentItem")[0];
+    if(removeClass !== undefined) {
+        if(removeClass.classList.contains("currentItem")) {
+            removeClass.classList.remove("currentItem");
+        }
+    }
+    const currentItem = document.getElementById(`${currentShowingId}`);
+    currentItem.classList.add("currentItem");
+    
     
     mainPhotoDiv.src = photosArray[currentShowingId].source;
 
-    const currentItem = document.getElementById(`${currentShowingId}`);
-    currentItem.classList.add("currentItem");
-
-    if (currentShowingId === 0) {
-        classRemove(photosArray.length)
-    }
-
-    if (currentShowingId > 0) {
-        classRemove(currentShowingId);
-    }
 
     nextShowingId = currentShowingId + 1;
     previousShowingId = currentShowingId - 1;
@@ -81,7 +78,7 @@ const photoChangeFunction = () => {
 setInterval(() => {
     currentShowingId += 1;
     photoChangeFunction();
-}, 3000);
+}, 5000);
 
 previousButton.addEventListener("click", () => {
     currentShowingId -= 1;
